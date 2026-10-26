@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Сахарный детектив: PRO Edition — Расширенная интерактивная обучающая игра</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Root Presentation Frame -->
+  <div id="app">
+    <div class="stage-container">
+      
+      <!-- Top Decorative Accent Bar -->
+      <div class="top-accent-bar"></div>
+
+      <!-- ================================================================== -->
+      <!-- SCREEN 1: Hero Start Screen                                        -->
+      <!-- ================================================================== -->
+      <section id="screen-hero" class="screen screen-hero active">
+        <!-- Top Navigation -->
+        <header class="hero-top-nav">
+          <div class="badge badge-blue">
+            <span id="hero-badge-tag-text">🔍 10 КЛАСС • КУРС «WEB-ДИЗАЙН» • PRO EDITION</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <button id="hero-btn-sound" class="btn btn-icon" title="Включить / Выключить звук" aria-label="Звук">
+              <span class="icon-slot">🔊</span>
+            </button>
+            <button id="hero-btn-settings" class="btn btn-icon" title="Настройки" aria-label="Настройки">
+              <span class="icon-slot">⚙️</span>
+            </button>
+          </div>
+        </header>
+
+        <!-- Center Hero Content -->
+        <div class="hero-center">
+          <div class="hero-badge-tag">ИНТЕРАКТИВНОЕ РАССЛЕДОВАНИЕ • 15 УРОВНЕЙ • МАГАЗИН БУСТОВ</div>
+          
+          <h1 class="hero-title">
+            САХАРНЫЙ <span>ДЕТЕКТИВ: PRO</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            Разоблачи скрытые сахара в 15 отделах супермаркета, используй бустеры и сахарные щиты, 
+            рассчитай дозу на калькуляторе и сразись с легендарным Сахарным Титаном!
+          </p>
+
+          <div class="hero-illustration" id="hero-illustration-slot">
+            <svg viewBox="0 0 140 140" width="130" height="130">
+              <circle cx="70" cy="70" r="54" fill="#1E293B" stroke="#38BDF8" stroke-width="3" opacity="0.9" />
+              <path d="M50 48 L90 48 L90 92 L50 92 Z" fill="#2563EB" opacity="0.3" rx="8" />
+              <circle cx="62" cy="62" r="22" fill="none" stroke="#F59E0B" stroke-width="5" />
+              <line x1="78" y1="78" x2="102" y2="102" stroke="#F59E0B" stroke-width="7" stroke-linecap="round" />
+              <rect x="42" y="70" width="16" height="16" rx="3" fill="#FFF" opacity="0.85" />
+              <rect x="48" y="56" width="14" height="14" rx="3" fill="#FFF" opacity="0.95" />
+            </svg>
+          </div>
+
+          <div style="display: flex; gap: 12px; margin-top: 10px; flex-wrap: wrap; justify-content: center;">
+            <button id="hero-btn-start" class="btn btn-primary btn-lg btn-cta-pulse">
+              <span>Начать расследование</span>
+              <span style="font-size: 20px;">🕵️‍♂️</span>
+            </button>
+            <button id="hero-btn-calc" class="btn btn-gold btn-lg">
+              <span>Калькулятор сахара</span>
+              <span style="font-size: 20px;">🧮</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- EdTech Meta Grid (Pedagogical Metadata) -->
+        <div class="hero-meta-grid">
+          <div class="hero-meta-card">
+            <span class="hero-meta-label">Школа</span>
+            <span class="hero-meta-value">Лицей IT / Средняя школа</span>
+          </div>
+          <div class="hero-meta-card">
+            <span class="hero-meta-label">Преподаватель</span>
+            <span class="hero-meta-value">Информатика & Web-дизайн</span>
+          </div>
+          <div class="hero-meta-card">
+            <span class="hero-meta-label">Курс & Класс</span>
+            <span class="hero-meta-value">Web-дизайн • 10 класс</span>
+          </div>
+          <div class="hero-meta-card">
+            <span class="hero-meta-label">Модуль PRO</span>
+            <span class="hero-meta-value">15 уровней • 81 продукт • Босс</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================== -->
+      <!-- SCREEN 2: Main Hub & Profile                                       -->
+      <!-- ================================================================== -->
+      <section id="screen-hub" class="screen screen-hub">
+        <header class="screen-header">
+          <div class="screen-header-left">
+            <div class="screen-header-title">
+              <span>🕵️</span>
+              <span>Сахарный детектив PRO</span>
+            </div>
+          </div>
+          <div class="screen-header-right">
+            <div class="hud-coins-pill" id="hub-coins-pill" title="Игровые монеты (нажми, чтобы открыть Лавку)" style="cursor: pointer;">
+              <span>🪙</span>
+              <span id="hub-coins-val" class="hud-coins-value">100</span>
+              <span class="hud-coins-add-hint" style="font-size: 11px; color: var(--color-gold); margin-left: 4px;">+🛒</span>
+            </div>
+            <button id="hub-btn-shop" class="btn" title="Детективная Лавка" style="border-color: var(--color-gold);">
+              <span>🛍️ Лавка</span>
+            </button>
+            <button id="hub-btn-sound" class="btn btn-icon" title="Звук" aria-label="Звук">
+              <span class="icon-slot">🔊</span>
+            </button>
+            <button id="hub-btn-settings" class="btn btn-icon" title="Настройки" aria-label="Настройки">
+              <span class="icon-slot">⚙️</span>
+            </button>
+          </div>
+        </header>
+
+        <div class="hub-body">
+          <!-- Player Profile Card -->
+          <div class="hub-player-profile">
+            <div id="hub-avatar-container" class="hub-avatar-box">
+              <!-- Avatar SVG inserted here -->
+            </div>
+            <div class="hub-player-info">
+              <div id="hub-player-name" class="hub-player-name">Юный детектив</div>
+              <div id="hub-player-rank" class="hub-player-rank">
+                <span>⭐</span>
+                <span id="hub-player-rank-text">Стажер пищевой инспекции</span>
+              </div>
+            </div>
+            <div style="margin-left: auto; display: flex; gap: 8px;">
+              <button id="hub-btn-change-avatar" class="btn" style="font-size: 11px;">Сменить аватар</button>
+            </div>
+          </div>
+
+          <!-- Main Actions Grid (6 Tiles) -->
+          <div class="hub-action-grid">
+            <div id="hub-tile-catalog" class="hub-tile" role="button" tabindex="0">
+              <div class="hub-tile-icon" style="font-size: 32px;">🗺️</div>
+              <div class="hub-tile-title">Каталог расследований</div>
+              <div class="hub-tile-desc">15 тематических отделов: напитки, фитнес, фастфуд и Сахарный Титан.</div>
+            </div>
+
+            <div id="hub-tile-shop" class="hub-tile" role="button" tabindex="0" style="border-color: rgba(245, 158, 11, 0.4);">
+              <div class="hub-tile-icon" style="font-size: 32px;">🛍️</div>
+              <div class="hub-tile-title">Детективная Лавка</div>
+              <div class="hub-tile-desc">Купить лупу 50:50, сахарный щит, аптечки, аватары и секретные досье за монеты.</div>
+            </div>
+
+            <div id="hub-tile-calc" class="hub-tile" role="button" tabindex="0" style="border-color: rgba(56, 189, 248, 0.4);">
+              <div class="hub-tile-icon" style="font-size: 32px;">🧮</div>
+              <div class="hub-tile-title">Калькулятор сахара</div>
+              <div class="hub-tile-desc">Узнай, сколько ложек и кубиков сахара в популярных продуктах.</div>
+            </div>
+
+            <div id="hub-tile-marathon" class="hub-tile" role="button" tabindex="0" style="border-color: rgba(239, 68, 68, 0.4);">
+              <div class="hub-tile-icon" style="font-size: 32px;">⚡</div>
+              <div class="hub-tile-title">Блиц-Марафон (60 сек)</div>
+              <div class="hub-tile-desc">Скоростной режим на рекорд! Зарабатывай бонусные монеты для лавки.</div>
+            </div>
+
+            <div id="hub-tile-achievements" class="hub-tile" role="button" tabindex="0">
+              <div class="hub-tile-icon" style="font-size: 32px;">🏆</div>
+              <div class="hub-tile-title">Достижения</div>
+              <div class="hub-tile-desc">16 знаков отличия и почетный диплом Грандмастера.</div>
+            </div>
+
+            <div id="hub-tile-settings" class="hub-tile" role="button" tabindex="0">
+              <div class="hub-tile-icon" style="font-size: 32px;">🎛️</div>
+              <div class="hub-tile-title">Настройки и Темы</div>
+              <div class="hub-tile-desc">Стили оформления интерфейса, громкость, сброс прогресса.</div>
+            </div>
+          </div>
+
+          <!-- Large Play CTA -->
+          <div class="hub-cta-section">
+            <button id="hub-btn-play" class="btn btn-gold btn-lg btn-cta-pulse">
+              <span>ПЕРЕЙТИ К РАССЛЕДОВАНИЯМ (15 УРОВНЕЙ)</span>
+              <span>🚀</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================== -->
+      <!-- SCREEN 3: Level Catalog (15 Thematic Levels)                        -->
+      <!-- ================================================================== -->
+      <section id="screen-catalog" class="screen screen-catalog">
+        <header class="screen-header">
+          <div class="screen-header-left">
+            <button id="catalog-btn-back" class="btn" title="В главный хаб">
+              <span>← Хаб</span>
+            </button>
+            <div class="screen-header-title">
+              <span>🗺️</span>
+              <span>Каталог расследований (15 отделов)</span>
+            </div>
+          </div>
+          <div class="screen-header-right">
+            <div class="hud-coins-pill" id="catalog-coins-pill" title="Открыть Лавку" style="cursor: pointer;">
+              <span>🪙</span>
+              <span id="catalog-coins-val" class="hud-coins-value">100</span>
+              <span class="hud-coins-add-hint" style="font-size: 11px; color: var(--color-gold);">+🛒</span>
+            </div>
+            <button id="catalog-btn-sound" class="btn btn-icon" title="Звук">
+              <span class="icon-slot">🔊</span>
+            </button>
+          </div>
+        </header>
+
+        <div class="catalog-body">
+          <div class="catalog-header-bar">
+            <div>
+              <h2 class="catalog-title">Выберите отдел расследования</h2>
+              <p style="font-size: 13px; color: var(--text-muted); margin-top: 2px;">
+                Завершайте уровни последовательно, чтобы добраться до Секретной Лаборатории Сахарного Титана.
+              </p>
+            </div>
+            <div class="badge badge-amber">
+              <span id="catalog-progress-badge">Пройдено: 0 / 15</span>
+            </div>
+          </div>
+
+          <!-- Filter Tabs -->
+          <div class="catalog-filter-bar">
+            <button class="catalog-filter-btn active" data-filter="all">Все 15 уровней</button>
+            <button class="catalog-filter-btn" data-filter="starter">1–5: Начальные отделы</button>
+            <button class="catalog-filter-btn" data-filter="pro">6–10: Профи и Азия</button>
+            <button class="catalog-filter-btn" data-filter="expert">11–15: Эксперт и Босс 👑</button>
+          </div>
+
+          <!-- 15 Levels Grid -->
+          <div id="catalog-grid" class="catalog-grid">
+            <!-- Dynamically populated by app.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================== -->
+      <!-- SCREEN 4: Active Game View (Sticky HUD + Canvas + Feedback Drawer)  -->
+      <!-- ================================================================== -->
+      <section id="screen-game" class="screen screen-game">
+        <!-- Sticky Top HUD -->
+        <header class="game-hud">
+          <div class="hud-left">
+            <button id="game-btn-back" class="btn btn-icon" title="К каталогу уровней">
+              <span>←</span>
+            </button>
+            <div class="hud-level-info">
+              <div id="hud-level-title" class="hud-level-title">
+                <span class="level-indicator-dot" style="width: 10px; height: 10px; border-radius: 50%; background: #2563EB;"></span>
+                <span>Уровень 1: Напитки</span>
+              </div>
+              <div id="hud-step-counter" class="hud-step-counter">Вопрос 1 из 6</div>
+            </div>
+            <div class="hud-progress-bar" title="Прогресс уровня">
+              <div id="hud-progress-fill" class="hud-progress-fill" style="width: 16%;"></div>
+            </div>
+          </div>
+
+          <div class="hud-right">
+            <!-- 3 Hearts Lives System with Shield Glow -->
+            <div id="hud-hearts-container" class="hud-hearts-container" title="Оставшиеся жизни">
+              <div id="heart-1" class="hud-heart">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="#EF4444">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+              </div>
+              <div id="heart-2" class="hud-heart">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="#EF4444">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+              </div>
+              <div id="heart-3" class="hud-heart">
+                <svg viewBox="0 0 24 24" width="24" height="24" fill="#EF4444">
+                  <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Coins Balance -->
+            <div id="hud-coins-pill" class="hud-coins-pill" title="Открыть Лавку во время игры" style="cursor: pointer;">
+              <span>🪙</span>
+              <span id="hud-coins-val" class="hud-coins-value">100</span>
+              <span class="hud-coins-add-hint" style="font-size: 11px; color: var(--color-gold);">+🛒</span>
+            </div>
+
+            <!-- Pause Button -->
+            <button id="game-btn-pause" class="btn btn-icon" title="Пауза" aria-label="Пауза">
+              <span>⏸️</span>
+            </button>
+          </div>
+        </header>
+
+        <!-- Question Work Area -->
+        <main class="game-canvas">
+          <!-- Boss Battle HUD (Level 15 only) -->
+          <div id="boss-banner" class="boss-banner" style="display: none;">
+            <div class="boss-title-block">
+              <span style="font-size: 24px;">😈</span>
+              <div>
+                <div class="boss-name">БОСС: Синтетический Сахарный Титан</div>
+                <div class="boss-subtitle" style="font-size: 11px; color: #E9D5FF;">Наноси критический урон химическими ответами!</div>
+              </div>
+            </div>
+            <div class="boss-hp-slots" id="boss-hp-container">
+              <span class="boss-hp-heart">💜</span>
+              <span class="boss-hp-heart">💜</span>
+              <span class="boss-hp-heart">💜</span>
+              <span class="boss-hp-heart">💜</span>
+              <span class="boss-hp-heart">💜</span>
+            </div>
+          </div>
+
+          <div class="question-prompt-banner">
+            <h2 id="question-prompt-text" class="question-text">Загрузка задания...</h2>
+            <div id="question-prompt-hint" class="question-subtext">Изучите упаковку и определите количество сахара</div>
+          </div>
+
+          <!-- In-Game Booster Toolbar -->
+          <div class="in-game-booster-bar" id="game-booster-bar">
+            <button id="btn-boost-5050" class="booster-btn" title="Исключить 2 неверных ответа">
+              <span>🔍 50:50</span>
+              <span id="badge-boost-5050" class="booster-badge-count">1</span>
+            </button>
+            <button id="btn-boost-shield" class="booster-btn" title="Защитить от 1 ошибки">
+              <span>🛡️ Щит</span>
+              <span id="badge-boost-shield" class="booster-badge-count">1</span>
+            </button>
+            <button id="btn-boost-hint" class="booster-btn" title="Лабораторный анализ состава">
+              <span>🧪 Анализ</span>
+              <span id="badge-boost-hint" class="booster-badge-count">1</span>
+            </button>
+            <button id="btn-boost-heart" class="booster-btn" title="Восстановить 1 жизнь">
+              <span>❤️ +1 Сердце</span>
+              <span id="badge-boost-heart" class="booster-badge-count">0</span>
+            </button>
+            <button id="btn-boost-freeze" class="booster-btn" title="Заморозка: +15 сек в марафоне или урон Боссу">
+              <span>⏳ Крио</span>
+              <span id="badge-boost-freeze" class="booster-badge-count">0</span>
+            </button>
+            <button id="btn-open-shop-quick" class="booster-btn" style="border-color: var(--color-gold);" title="Купить бустеры в лавке">
+              <span>🛒 Лавка</span>
+            </button>
+          </div>
+
+          <!-- Dynamic Interaction Container -->
+          <div id="question-interaction-container" style="width: 100%; display: flex; justify-content: center;">
+            <!-- Rendered by app.js -->
+          </div>
+        </main>
+
+        <!-- Educational Feedback Drawer -->
+        <div id="feedback-drawer" class="feedback-drawer">
+          <div class="feedback-content">
+            <div id="drawer-icon-box" class="feedback-icon-box">
+              <span>✓</span>
+            </div>
+            <div class="feedback-text-block">
+              <div id="drawer-status-title" class="feedback-status-title">Отлично!</div>
+              <div id="drawer-explanation" class="feedback-explanation">Подробное пояснение к составу...</div>
+            </div>
+          </div>
+          <div style="width: 100%; display: flex; justify-content: flex-end;">
+            <button id="drawer-btn-next" class="btn btn-primary btn-lg drawer-btn-next">
+              <span>Далее</span>
+              <span>→</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================== -->
+      <!-- SCREEN 5: Victory Screen                                           -->
+      <!-- ================================================================== -->
+      <section id="screen-victory" class="screen screen-victory">
+        <!-- Confetti Canvas -->
+        <canvas id="confetti-canvas" class="victory-canvas-confetti"></canvas>
+
+        <div class="victory-content-card">
+          <div class="victory-trophy-box">
+            <svg viewBox="0 0 80 80" width="80" height="80">
+              <circle cx="40" cy="40" r="38" fill="#F59E0B" opacity="0.2" />
+              <path d="M22 22 L58 22 C58 22 58 46 40 48 C22 46 22 22 22 22 Z" fill="#F59E0B" stroke="#FDE047" stroke-width="2" />
+              <path d="M22 26 C16 26 12 30 12 36 C12 42 16 46 24 46" fill="none" stroke="#FDE047" stroke-width="3" stroke-linecap="round" />
+              <path d="M58 26 C64 26 68 30 68 36 C68 42 64 46 56 46" fill="none" stroke="#FDE047" stroke-width="3" stroke-linecap="round" />
+              <rect x="36" y="48" width="8" height="14" fill="#D97706" />
+              <rect x="26" y="62" width="28" height="8" rx="3" fill="#B45309" />
+              <polygon points="40,28 43,36 51,36 45,41 47,49 40,44 33,49 35,41 29,36 37,36" fill="#FFF" />
+            </svg>
+          </div>
+
+          <h1 class="victory-title">
+            РАССЛЕДОВАНИЕ <span>ЗАВЕРШЕНО!</span>
+          </h1>
+
+          <p class="victory-subtitle" id="victory-subtitle-text">
+            Вы успешно разоблачили скрытые сахара и победили Синтетического Сахарного Титана!
+            Теперь производителям не удастся замаскировать сладкие ловушки!
+          </p>
+
+          <!-- 4 Stats Cards -->
+          <div class="victory-stats-grid">
+            <div class="victory-stat-item">
+              <span class="victory-stat-label">Собрано монет</span>
+              <span id="victory-stat-coins" class="victory-stat-val">1200+</span>
+            </div>
+            <div class="victory-stat-item">
+              <span class="victory-stat-label">Пройдено уровней</span>
+              <span id="victory-stat-levels" class="victory-stat-val">15 / 15</span>
+            </div>
+            <div class="victory-stat-item">
+              <span class="victory-stat-label">Разоблачено формул</span>
+              <span id="victory-stat-sugars" class="victory-stat-val">81 продукт</span>
+            </div>
+            <div class="victory-stat-item">
+              <span class="victory-stat-label">Итоговый ранг</span>
+              <span class="victory-stat-val" style="color: var(--color-gold); font-size: 14px;">Грандмастер Пищевой Инспекции</span>
+            </div>
+          </div>
+
+          <div class="victory-actions-row">
+            <button id="victory-btn-diploma" class="btn btn-gold btn-lg">
+              <span>📜 Открыть диплом Грандмастера</span>
+            </button>
+            <button id="victory-btn-replay" class="btn btn-primary btn-lg">
+              <span>🔄 Играть снова</span>
+            </button>
+            <button id="victory-btn-hub" class="btn btn-lg">
+              <span>🏠 В главное меню</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================== -->
+      <!-- MODAL: DETECTIVE STORE (Лавка Сыщика)                              -->
+      <!-- ================================================================== -->
+      <div id="modal-shop" class="modal-backdrop">
+        <div class="modal-dialog" style="max-width: 720px;">
+          <div class="modal-header">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="font-size: 24px;">🛍️</span>
+              <h3 class="modal-title">Детективная Лавка & Бусты</h3>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <div class="hud-coins-pill">
+                <span>🪙</span>
+                <span id="shop-coins-val" class="hud-coins-value">100</span>
+              </div>
+              <button id="shop-btn-close-x" class="btn btn-icon" style="box-shadow:none;">✕</button>
+            </div>
+          </div>
+          <div class="modal-body">
+            <!-- Shop Tabs -->
+            <div class="shop-tabs-nav">
+              <button class="shop-tab-btn active" data-tab="boosters">⚡ Бустеры</button>
+              <button class="shop-tab-btn" data-tab="avatars">🕵️ Аватары</button>
+              <button class="shop-tab-btn" data-tab="themes">🎨 Темы UI</button>
+              <button class="shop-tab-btn" data-tab="dossiers">📜 Досье</button>
+            </div>
+
+            <!-- Shop Items Grid -->
+            <div id="shop-items-container" class="shop-items-grid">
+              <!-- Dynamically populated by app.js -->
+            </div>
+          </div>
+          <div class="modal-footer" style="justify-content: space-between;">
+            <span style="font-size: 12px; color: var(--text-muted);">
+              💡 Монеты зарабатываются за верные ответы на уровнях и в Блиц-Марафоне!
+            </span>
+            <button id="shop-btn-close" class="btn btn-primary">Готово</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================== -->
+      <!-- MODAL: SUGAR CALCULATOR (Калькулятор Сахара)                       -->
+      <!-- ================================================================== -->
+      <div id="modal-calc" class="modal-backdrop">
+        <div class="modal-dialog" style="max-width: 640px;">
+          <div class="modal-header">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="font-size: 24px;">🧮</span>
+              <h3 class="modal-title">Интерактивный калькулятор скрытого сахара</h3>
+            </div>
+            <button id="calc-btn-close-x" class="btn btn-icon" style="box-shadow:none;">✕</button>
+          </div>
+          <div class="modal-body">
+            <p style="font-size: 13px; color: var(--text-secondary);">
+              Выберите популярный продукт или введите данные с этикетки (граммы сахара на 100 г и вес порции).
+            </p>
+
+            <div class="calc-quick-chips" id="calc-quick-chips-container">
+              <!-- Popular foods chips populated via JS -->
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px;">
+              <div>
+                <label class="setting-label" for="calc-input-sugar">Сахар на 100 г (г):</label>
+                <input id="calc-input-sugar" type="number" class="text-input" min="0" max="100" value="10.6" step="0.1">
+              </div>
+              <div>
+                <label class="setting-label" for="calc-input-portion">Вес порции (г или мл):</label>
+                <input id="calc-input-portion" type="number" class="text-input" min="1" max="2000" value="500" step="10">
+              </div>
+            </div>
+
+            <!-- Calculation Results Card -->
+            <div class="calc-results-card">
+              <div class="calc-metrics-row">
+                <div class="calc-metric-box">
+                  <span id="calc-res-spoons" class="calc-metric-val">13.3</span>
+                  <span class="calc-metric-label">Чайных ложек 🥄</span>
+                </div>
+                <div class="calc-metric-box">
+                  <span id="calc-res-grams" class="calc-metric-val">53 г</span>
+                  <span class="calc-metric-label">Чистого сахара</span>
+                </div>
+                <div class="calc-metric-box">
+                  <span id="calc-res-pct" class="calc-metric-val" style="color: #EF4444;">212%</span>
+                  <span class="calc-metric-label">Дневной нормы (25г)</span>
+                </div>
+                <div class="calc-metric-box">
+                  <span id="calc-res-burn" class="calc-metric-val" style="color: #38BDF8;">32 мин</span>
+                  <span class="calc-metric-label">Бега для сжигания 🏃</span>
+                </div>
+              </div>
+
+              <!-- 3D Isometric Sugar Cubes Stacker Visualization -->
+              <div id="calc-cubes-visual" style="margin-top: 6px; width: 100%; display: flex; justify-content: center;">
+                <!-- Populated via Graphics.getSugarCubesSvg -->
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button id="calc-btn-close" class="btn btn-primary">Понятно</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================== -->
+      <!-- MODAL: BLITZ MARATHON MODE                                         -->
+      <!-- ================================================================== -->
+      <div id="modal-marathon" class="modal-backdrop">
+        <div class="modal-dialog" style="max-width: 600px; text-align: center;">
+          <div class="modal-header">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 24px;">⚡</span>
+              <h3 class="modal-title">Сахарный Блиц-Марафон (60 сек)</h3>
+            </div>
+            <button id="marathon-btn-close-x" class="btn btn-icon" style="box-shadow:none;">✕</button>
+          </div>
+          <div class="modal-body">
+            <div id="marathon-intro-view">
+              <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 12px;">
+                Отвечай на максимальное число случайных вопросов за 60 секунд!
+                За каждый верный ответ начисляются очки с комбо-множителем, а в конце ты получишь награду монетами!
+              </p>
+              <div class="badge badge-amber" style="margin-bottom: 16px;">
+                🏆 Твой рекорд: <span id="marathon-high-score">0</span> очков
+              </div>
+              <button id="marathon-btn-start-run" class="btn btn-gold btn-lg btn-cta-pulse">
+                <span>ПОЕХАЛИ! (СТАРТ)</span>
+                <span>🚀</span>
+              </button>
+            </div>
+
+            <div id="marathon-active-view" style="display: none;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; gap: 8px;">
+                <div class="marathon-timer-box">
+                  <span>⏱️</span>
+                  <span id="marathon-timer-val">60</span>s
+                </div>
+                <button id="marathon-btn-freeze" class="btn btn-secondary btn-sm" title="Заморозка времени: +15 секунд к таймеру" style="display: inline-flex; align-items: center; gap: 6px; padding: 4px 10px; font-size: 12px; border-color: #38BDF8;">
+                  <span>⏳ +15с</span>
+                  <span id="marathon-freeze-badge" class="badge" style="background: #0284C7; color: #FFF; padding: 1px 6px; border-radius: 8px;">0</span>
+                </button>
+                <div class="marathon-score-box">
+                  <span>⭐</span>
+                  <span id="marathon-score-val">0</span>
+                  <span id="marathon-combo-badge" style="color: #38BDF8; font-size: 11px;">(x1.0)</span>
+                </div>
+              </div>
+
+              <div id="marathon-question-prompt" style="font-size: 15px; font-weight: 800; margin-bottom: 14px; min-height: 44px;">
+                Загрузка вопроса...
+              </div>
+
+              <div id="marathon-options-container" style="display: flex; flex-direction: column; gap: 8px;">
+                <!-- Populated dynamically -->
+              </div>
+            </div>
+
+            <div id="marathon-finish-view" style="display: none;">
+              <div style="font-size: 44px; margin-bottom: 8px;">🏁</div>
+              <h2 style="color: var(--color-gold-light); font-size: 22px;">ВРЕМЯ ВЫШЛО!</h2>
+              <p style="color: var(--text-secondary); margin-top: 6px;">
+                Ты набрал <strong id="marathon-final-score" style="color: #FFF;">0</strong> очков!
+              </p>
+              <div class="badge badge-blue" style="margin: 12px 0;">
+                Заработано: <strong id="marathon-coins-earned">+0</strong> монет 🪙
+              </div>
+              <div>
+                <button id="marathon-btn-retry" class="btn btn-gold btn-lg">Еще раз</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================== -->
+      <!-- MODAL: SECRET DOSSIER READER                                       -->
+      <!-- ================================================================== -->
+      <div id="modal-dossier" class="modal-backdrop">
+        <div class="modal-dialog" style="max-width: 650px;">
+          <div class="modal-header">
+            <h3 class="modal-title" id="dossier-modal-title">📜 Секретное Досье</h3>
+            <button id="dossier-btn-close-x" class="btn btn-icon" style="box-shadow:none;">✕</button>
+          </div>
+          <div class="modal-body" id="dossier-modal-body" style="max-height: 420px; overflow-y: auto;">
+            <!-- Populated dynamically -->
+          </div>
+          <div class="modal-footer">
+            <button id="dossier-btn-close" class="btn btn-primary">Закрыть</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================== -->
+      <!-- MODAL: PAUSE MODAL                                                 -->
+      <!-- ================================================================== -->
+      <div id="modal-pause" class="modal-backdrop">
+        <div class="modal-dialog">
+          <div class="modal-header">
+            <h3 class="modal-title">⏸️ Расследование на паузе</h3>
+            <button id="pause-btn-close-x" class="btn btn-icon" style="box-shadow:none;">✕</button>
+          </div>
+          <div class="modal-body">
+            <p>Игра сохранена. Вы можете возобновить расследование в любой момент.</p>
+            <div class="setting-row">
+              <span class="setting-label">Фоновая музыка</span>
+              <button id="pause-toggle-music" class="btn">Вкл / Выкл</button>
+            </div>
+            <div class="setting-row">
+              <span class="setting-label">Звуковые эффекты</span>
+              <button id="pause-toggle-sfx" class="btn">Вкл / Выкл</button>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button id="pause-btn-hub" class="btn">В каталог</button>
+            <button id="pause-btn-restart" class="btn btn-danger">Начать уровень заново</button>
+            <button id="pause-btn-resume" class="btn btn-primary">Продолжить</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================== -->
+      <!-- MODAL: SETTINGS & THEMES MODAL                                     -->
+      <!-- ================================================================== -->
+      <div id="modal-settings" class="modal-backdrop">
+        <div class="modal-dialog">
+          <div class="modal-header">
+            <h3 class="modal-title">⚙️ Настройки и Темы</h3>
+            <button id="settings-btn-close-x" class="btn btn-icon" style="box-shadow:none;">✕</button>
+          </div>
+          <div class="modal-body">
+            <div class="setting-row">
+              <label class="setting-label" for="setting-player-name">Имя детектива:</label>
+              <input id="setting-player-name" type="text" class="text-input" maxlength="20" value="Юный детектив">
+            </div>
+
+            <div>
+              <div class="setting-label" style="margin-bottom: 8px;">Выберите тему оформления:</div>
+              <div id="setting-theme-grid" style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <!-- Themes rendered by app.js -->
+              </div>
+            </div>
+
+            <div>
+              <div class="setting-label" style="margin-top: 10px; margin-bottom: 8px;">Выберите аватар:</div>
+              <div id="setting-avatar-grid" class="avatar-select-grid">
+                <!-- Avatars rendered by app.js -->
+              </div>
+            </div>
+
+            <div class="setting-row">
+              <span class="setting-label">Громкость звуков (SFX):</span>
+              <input id="setting-slider-sound" type="range" class="range-slider" min="0" max="1" step="0.05" value="0.8">
+            </div>
+
+            <div class="setting-row">
+              <span class="setting-label">Громкость музыки (BGM):</span>
+              <input id="setting-slider-music" type="range" class="range-slider" min="0" max="1" step="0.05" value="0.6">
+            </div>
+
+            <div class="setting-row">
+              <span class="setting-label">Без звука (Mute):</span>
+              <button id="setting-btn-mute" class="btn">Выключить звук</button>
+            </div>
+
+            <hr style="border: none; border-top: 1px solid var(--border-subtle); margin: 4px 0;">
+
+            <div class="setting-row">
+              <span class="setting-label" style="color: #F87171;">Сбросить прогресс:</span>
+              <button id="setting-btn-reset" class="btn btn-danger">Сбросить</button>
+            </div>
+
+            <div class="setting-row">
+              <span class="setting-label" style="color: var(--color-gold); font-size: 12px;">Панель учителя:</span>
+              <button id="setting-btn-debug" class="btn btn-debug">Панель отладки (~)</button>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button id="settings-btn-save" class="btn btn-primary">Готово</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================== -->
+      <!-- MODAL: ACHIEVEMENTS MODAL (16 Badges)                              -->
+      <!-- ================================================================== -->
+      <div id="modal-achievements" class="modal-backdrop">
+        <div class="modal-dialog" style="max-width: 640px;">
+          <div class="modal-header">
+            <h3 class="modal-title">🏆 16 Достижений Сахарного Сыщика</h3>
+            <button id="achievements-btn-close-x" class="btn btn-icon" style="box-shadow:none;">✕</button>
+          </div>
+          <div class="modal-body" style="max-height: 420px; overflow-y: auto;">
+            <div id="achievements-container" style="display: flex; flex-direction: column; gap: 10px;">
+              <!-- Populated by app.js -->
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button id="achievements-btn-close" class="btn btn-primary">Закрыть</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================== -->
+      <!-- MODAL: FRIENDLY GAME OVER MODAL                                    -->
+      <!-- ================================================================== -->
+      <div id="modal-game-over" class="modal-backdrop">
+        <div class="modal-dialog" style="max-width: 480px; text-align: center;">
+          <div class="modal-body">
+            <div class="game-over-banner">
+              <div class="game-over-icon" style="font-size: 48px;">💔</div>
+              <h2 style="font-size: 24px; font-weight: 900; color: #EF4444;">ЖИЗНИ ЗАКОНЧИЛИСЬ!</h2>
+              <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.5;">
+                Сахарные ловушки оказались коварными! Монеты и открытые уровни сохранены.
+                Используйте Сахарный Щит 🛡️ в следующий раз, чтобы не терять жизни!
+              </p>
+              <div class="badge badge-amber" style="margin-top: 8px;">
+                💡 Совет: в Детективной Лавке можно приобрести щиты и аптечки!
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer" style="justify-content: center; gap: 14px;">
+            <button id="game-over-btn-catalog" class="btn">В каталог уровней</button>
+            <button id="game-over-btn-shop" class="btn" style="border-color: var(--color-gold);">В лавку 🛍️</button>
+            <button id="game-over-btn-restart" class="btn btn-gold btn-lg">
+              <span>Попробовать снова 🔄</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================== -->
+      <!-- MODAL: DETECTIVE DIPLOMA MODAL                                     -->
+      <!-- ================================================================== -->
+      <div id="modal-diploma" class="modal-backdrop">
+        <div class="modal-dialog diploma-modal-dialog">
+          <div class="modal-header" style="justify-content: flex-end; border: none; padding-bottom: 0;">
+            <button id="diploma-btn-close-x" class="btn btn-icon" style="background: rgba(15,23,42,0.8);">✕</button>
+          </div>
+          <div class="modal-body" style="padding: 0; align-items: center;">
+            <div id="diploma-svg-container" class="diploma-svg-wrapper">
+              <!-- Rendered via Graphics.getGrandmasterDiplomaSvg -->
+            </div>
+          </div>
+          <div class="modal-footer" style="justify-content: center; gap: 14px; border: none;">
+            <button id="diploma-btn-print" class="btn btn-gold">🖨️ Распечатать / Сохранить</button>
+            <button id="diploma-btn-close" class="btn btn-primary">Отлично!</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================== -->
+      <!-- TEACHER / AUDITOR DEBUG PANEL (`~` key or settings)               -->
+      <!-- ================================================================== -->
+      <div id="debug-panel" class="debug-panel-overlay">
+        <div class="debug-header">
+          <span>🔧 ПАНЕЛЬ УЧИТЕЛЯ / ТЕСТИРОВЩИКА (PRO DEBUG • КЛАВИША ~)</span>
+          <button id="debug-btn-close" class="btn-debug" style="color:#EF4444;">✕ Закрыть</button>
+        </div>
+        <div class="debug-btn-row">
+          <span style="font-size: 11px; color: var(--text-muted);">Переход на уровень (1–15):</span>
+          <button class="btn-debug" data-action="jump" data-level="1">Ур 1</button>
+          <button class="btn-debug" data-action="jump" data-level="4">Ур 4</button>
+          <button class="btn-debug" data-action="jump" data-level="7">Ур 7</button>
+          <button class="btn-debug" data-action="jump" data-level="8">Ур 8 (ЗОЖ)</button>
+          <button class="btn-debug" data-action="jump" data-level="10">Ур 10 (Азия)</button>
+          <button class="btn-debug" data-action="jump" data-level="13">Ур 13 (Аптека)</button>
+          <button class="btn-debug" data-action="jump" data-level="15" style="color: #C084FC;">Ур 15 (БОСС)</button>
+          <button class="btn-debug" data-action="jump-victory" style="color: #FDE047;">Победа 🏆</button>
+          <button class="btn-debug" data-action="jump-gameover" style="color: #F87171;">Game Over 💔</button>
+        </div>
+        <div class="debug-btn-row">
+          <span style="font-size: 11px; color: var(--text-muted);">Инструменты:</span>
+          <button class="btn-debug" data-action="lives" data-count="3">3 ❤️</button>
+          <button class="btn-debug" data-action="toggle-shield" style="color: #38BDF8;">Щит Вкл/Выкл</button>
+          <button class="btn-debug" data-action="damage-boss" style="color: #F43F5E;">-1 HP Боссу</button>
+          <button class="btn-debug" data-action="coins" data-amount="100">+100 🪙</button>
+          <button class="btn-debug" data-action="coins" data-amount="500">+500 🪙</button>
+          <button class="btn-debug" data-action="give-boosters" style="color: #FBBF24;">+3 всех бустеров</button>
+          <button class="btn-debug" data-action="unlock-all" style="color: #6EE7B7;">Открыть все 15 уровней</button>
+          <button class="btn-debug" data-action="unlock-achieve" style="color: #93C5FD;">Все ачивки</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Deferred Scripts in strict execution order -->
+  <script src="js/data.js" defer></script>
+  <script src="js/state.js" defer></script>
+  <script src="js/audio.js" defer></script>
+  <script src="js/graphics.js" defer></script>
+  <script src="js/confetti.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>
